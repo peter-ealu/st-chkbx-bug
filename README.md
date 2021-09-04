@@ -2,4 +2,4 @@
 
 Toy app to illustrate streamlit bug introduced after V0.83 (i.e. after session state introduced). 
 
-Ghost headers (or any content other than widgets) haunt the sidebar after checkboxes in the sidebar are clicked. 
+Ghost headers (and sometimes, ghosts of other widgets) haunt the sidebar after checkboxes in the sidebar are clicked. 
