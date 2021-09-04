@@ -10,24 +10,16 @@ def main():
     # form the UI page & sidebar
     st.set_page_config(
         page_title="Zoo",
-        page_icon=":tiger:",
+        page_icon=":panda_face:",
         layout="centered",
         initial_sidebar_state="expanded",
     )
-
-    # Code to remove 'hamburger' menu & 'Made with Streamlit' footer:
-    hide_streamlit_style = """
-    <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    </style>
-    """
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
     st.title("*Home Zoo Assessor*")
 
     # Collect all User Inputs #########################################################################################
     st.sidebar.title(":pencil: Input Details")
+    st.sidebar.subheader("")
 
     # Read template containing full UI spec for each input variable from parm file into a DataFrame
     df_inputs = pd.read_excel(
@@ -78,7 +70,8 @@ def main():
     st.write(f"Total scariness is {scary_sum}")
     st.write(f"Total ferocity is {fierce_sum}")
 
-    st.header(':see_no_evil: Every DS app needs a nonsense chart')
+    # print(df_inputs)
+    st.header(':see_no_evil: Every DS app needs a nonsense chart...')
     show_chart = st.checkbox(label='Show a nonsense chart?',
                              value=False,
                              key=str(998),  # String required for streamlit versions after v0.83
@@ -155,11 +148,11 @@ def collect_user_inputval(id_, df_inputs, ):
 
 
 def stack_plot(df):
-    fig = px.area(df, x='attr', y='user_input', color='cls_or_instnc')
+    df_zoo = df[df.user_input > 0]
+
+    fig = px.area(df_zoo, x='attr', y='user_input', color='cls_or_instnc')
     fig.update_layout(title="Attributes (stacked)")
     return fig
-
-
 #######################################################################################################################
 
 

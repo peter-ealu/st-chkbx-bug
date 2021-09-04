@@ -1,0 +1,11 @@
+name: C:\Users\peter\st-chkbx-bug\stbug_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pandas
+  - python=3.7.9
+  - openpyxl
+  - streamlit
+  - plotly
+prefix: C:\Users\peter\st-chkbx-bug\stbug_env

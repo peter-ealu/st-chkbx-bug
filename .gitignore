@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 stbug_env/
+sandbox/
